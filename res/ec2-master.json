@@ -1,0 +1,40 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "EC2 Management API",
+        "description": "API for managing EC2 instances",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/startEc2Instance": {
+            "post": {
+                "description": "Start an EC2 instance with specified instance type and SSH key",
+                "parameters": [
+                    {
+                        "name": "instanceType",
+                        "in": "query",
+                        "description": "The EC2 instance type to launch",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "keyName",
+                        "in": "query",
+                        "description": "The name of the SSH key to associate with the instance",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "EC2 instance started successfully"
+                    }
+                }
+            }
+        }
+    }
+}
